@@ -10,16 +10,15 @@ class Member:
 
     # constructor to create member, taking a Cities object
     # initializes path field
-    def __init__(self, cities):
-        self.cities = cities
+    def __init__(self, num_cities):
+        self.cities = Cities(num_cities)
         self.route = []
         self.visited = []
+        self.MAX_DISTANCE = Cities.DISTANCE * (num_cities - 1)
         # initialize route
         # route might be useless, decide what to do later
-        for x in range(0, len(cities)):
+        for x in range(0, len(self.cities)):
             self.route.append(-1)
-
-
 
     # creates a random new permutation based on
     # the previous cities collected
@@ -36,4 +35,8 @@ class Member:
                 z = random.randint(0, len(self.cities))
             self.visited[z] = True
 
-    def select_parents(self):
+    # scores the fitness of the member array
+    # using the total distance between points
+    def get_fitness(self, Member):
+        score = Member.get_total_distance()
+        return score

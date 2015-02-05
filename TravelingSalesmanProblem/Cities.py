@@ -23,6 +23,7 @@ class Cities:
     # create new Cities object based on new set of cities
     def __init__(self, list):
         self.city_list = list
+        self.DISTANCE = 50
 
     # generates the distances between each city
     def create_distances(self):
@@ -33,7 +34,7 @@ class Cities:
         for x in range(0, len(self.city_list)):
             for y in range (0, x):
 
-                self.distance_matrix[x][y] = random.randint(1, 50)
+                self.distance_matrix[x][y] = random.randint(1, self.distance)
                 if x == y:
                     self.distance_matrix[x][y] = 0
         print(self.distance_matrix)
@@ -43,7 +44,7 @@ class Cities:
         return list
 
     # gets the distance from a specified city to another
-    def get_distance(self, city1, city2):
+    def get__specified_distance(self, city1, city2):
         if city1 <= 0 or city1 > len(self.city_list):
             raise LookupError("city1 is out of range")
 
@@ -51,6 +52,14 @@ class Cities:
             raise LookupError("city2 is out of range")
         print(self.distance_matrix[city1][city2])
         return self.distance_matrix[city1][city2]
+
+    # gets the distance between all points of the
+    # Cities object
+    def get_total_distance(self):
+        distance = 0
+        for x in range(0, len(self.city_list)):
+            for y in range(0, x):
+                distance += self.citylist[x][y]
 
     # gets the number of cities in this particular object
     def get_number_cities(self):
