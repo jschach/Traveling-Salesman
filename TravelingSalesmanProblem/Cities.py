@@ -16,7 +16,6 @@ class Cities:
         self.city_list = array('i', [])
         for x in range(0, items):
             self.city_list.append(x)
-            print(self.city_list[x])
         self.create_distances()
 
 
