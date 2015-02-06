@@ -30,11 +30,14 @@ class Member:
         # reset boolean array
         for x in range (0, self.num_cities):
             self.visited.append(False)
+        print(len(self.visited))
         # create new random permutation with no repetitions
         for x in range(0, self.num_cities):
-            z = random.randint(0, self.num_cities)
-            while self.visited[z] == True:
-                z = random.randint(0, self.num_cities)
+            z = random.randint(0, self.num_cities - 1)
+            print(z, "<<< randomly generated")
+            print(self.visited[z], "<<< is z visited")
+            while (self.visited[z] == True):
+                   z = random.randint(0, self.num_cities - 1)
             self.visited[z] = True
 
     # creates a copy of a new member from

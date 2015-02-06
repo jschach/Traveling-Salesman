@@ -80,8 +80,8 @@ class Cities:
         return len(self.city_list)
 
 
-def main():
-    c = Cities(5)
-
-if __name__ == '__main__':
-    main()
+# def main():
+#     c = Cities(5)
+#
+# if __name__ == '__main__':
+#     main()

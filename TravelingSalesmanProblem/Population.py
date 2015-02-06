@@ -14,7 +14,7 @@ class Population:
     # just like my love life
     def __init__(self, num_cities):
         self.population = []
-        self.start_member = Member.Member(15)
+        self.start_member = Member.Member(num_cities)
         self.population.append(self.start_member)
         self.POPULATION_SIZE = 199
         self.population_ranking = []
@@ -68,3 +68,12 @@ class Population:
 
 
         return 0
+
+def main():
+    p = Population(5)
+    p.start_population()
+    p.insertion_sort(p.population)
+    print(p.population)
+
+if __name__ == '__main__':
+    main()
