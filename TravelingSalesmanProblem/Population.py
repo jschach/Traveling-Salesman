@@ -1,12 +1,13 @@
-import Member.py
-import Cities.pv
+import Member
+import Cities
 import random
 
 __author__ = 'Jenna'
 
 
 class Population:
-    """ Runs the genetic algorithm.
+    """
+    Runs the genetic algorithm.
     """
 
     # creates a population of 1,
@@ -22,8 +23,7 @@ class Population:
     # with many random members for starting population
     def start_population(self):
         for x in range(0, self.POPULATION_SIZE):
-            self.population.append\
-                (self.start_member.new_permutation())
+            self.population.append(self.start_member.new_permutation())
 
     # selects a random parent with the probability of choosing
     # a better parent over a worse parent (1*n/sum(POPULATION_SIZE)
@@ -44,5 +44,20 @@ class Population:
         while mother_index <= father_index:
             mother_index = self.population.select_parent()
 
+    # insertion sort to aid in the sorting of the ranking
+    def insertion_sort(self, array):
+        for x in range(1, len(array)):
+            current = array[x]
+            pos = x
+
+            while pos > 0 and array[pos - 1] > current:
+                array[pos] = array[pos - 1]
+                pos = pos - 1
+            array[pos] = current
+        return array
+
+    # getter method for population ranking that
+    # sorts the ranking before returning it
     def get_population_ranking(self):
-        return 0
+        ranking = self.insertion_sort(self.population_ranking)
+        return ranking

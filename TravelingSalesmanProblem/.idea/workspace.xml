@@ -23,14 +23,14 @@
     <favorites_list name="TravelingSalesmanProblem" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.32210836">
+    <splitter split-orientation="horizontal" split-proportion="0.26866764">
       <split-first>
         <leaf>
           <file leaf-file-name="Cities.py" pinned="false" current-in-tab="true">
-            <entry file="file://$USER_HOME$/Documents/Projects/Traveling-Salesman/TravelingSalesmanProblem/Cities.py">
+            <entry file="file://$PROJECT_DIR$/Cities.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6719577" vertical-offset="459" max-vertical-offset="1120">
-                  <caret line="60" column="31" selection-start-line="60" selection-start-column="31" selection-end-line="60" selection-end-column="31" />
+                <state vertical-scroll-proportion="0.12259194" vertical-offset="378" max-vertical-offset="1148">
+                  <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
                   </folding>
@@ -41,16 +41,16 @@
         </leaf>
       </split-first>
       <split-second>
-        <splitter split-orientation="horizontal" split-proportion="0.64417845">
+        <splitter split-orientation="horizontal" split-proportion="0.6875">
           <split-first>
             <leaf>
               <file leaf-file-name="Population.py" pinned="false" current-in-tab="true">
-                <entry file="file://$USER_HOME$/Documents/Projects/Traveling-Salesman/TravelingSalesmanProblem/Population.py">
+                <entry file="file://$PROJECT_DIR$/Population.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state vertical-scroll-proportion="0.56551725" vertical-offset="176" max-vertical-offset="756">
-                      <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+                    <state vertical-scroll-proportion="0.7548161" vertical-offset="395" max-vertical-offset="966">
+                      <caret line="59" column="43" selection-start-line="59" selection-start-column="43" selection-end-line="59" selection-end-column="43" />
                       <folding>
-                        <element signature="e#0#16#0" expanded="true" />
+                        <element signature="e#0#13#0" expanded="true" />
                       </folding>
                     </state>
                   </provider>
@@ -61,13 +61,11 @@
           <split-second>
             <leaf>
               <file leaf-file-name="Member.py" pinned="false" current-in-tab="true">
-                <entry file="file://$USER_HOME$/Documents/Projects/Traveling-Salesman/TravelingSalesmanProblem/Member.py">
+                <entry file="file://$PROJECT_DIR$/Member.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state vertical-scroll-proportion="0.5044092" vertical-offset="92" max-vertical-offset="672">
-                      <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-                      <folding>
-                        <element signature="e#0#16#0" expanded="true" />
-                      </folding>
+                    <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="686">
+                      <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+                      <folding />
                     </state>
                   </provider>
                 </entry>
@@ -83,10 +81,10 @@
       <list>
         <option value="$PROJECT_DIR$/Salesman.py" />
         <option value="$PROJECT_DIR$/Cities.py" />
+        <option value="$PROJECT_DIR$/Cities.py" />
         <option value="$PROJECT_DIR$/Member.py" />
-        <option value="$USER_HOME$/Documents/Projects/Traveling-Salesman/TravelingSalesmanProblem/Cities.py" />
-        <option value="$USER_HOME$/Documents/Projects/Traveling-Salesman/TravelingSalesmanProblem/Member.py" />
-        <option value="$USER_HOME$/Documents/Projects/Traveling-Salesman/TravelingSalesmanProblem/Population.py" />
+        <option value="$PROJECT_DIR$/Member.py" />
+        <option value="$PROJECT_DIR$/Population.py" />
       </list>
     </option>
   </component>
@@ -126,7 +124,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/Projects/Traveling-Salesman" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -309,7 +307,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45021963" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10059172" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09467456" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -348,7 +346,35 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Documents/Projects/Traveling-Salesman/TravelingSalesmanProblem/Cities.py">
+    <entry file="file://$PROJECT_DIR$/Cities.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1120">
+          <caret line="60" column="31" selection-start-line="60" selection-start-column="31" selection-end-line="60" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Population.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="176" max-vertical-offset="756">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Member.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="672">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cities.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="1008">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
@@ -358,17 +384,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Documents/Projects/Traveling-Salesman/TravelingSalesmanProblem/Member.py">
+    <entry file="file://$PROJECT_DIR$/Member.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="322">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Documents/Projects/Traveling-Salesman/TravelingSalesmanProblem/Cities.py">
+    <entry file="file://$PROJECT_DIR$/Cities.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="518">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -378,32 +402,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Documents/Projects/Traveling-Salesman/TravelingSalesmanProblem/Cities.py">
+    <entry file="file://$PROJECT_DIR$/Member.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6719577" vertical-offset="459" max-vertical-offset="1120">
-          <caret line="60" column="31" selection-start-line="60" selection-start-column="31" selection-end-line="60" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="686">
+          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cities.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12259194" vertical-offset="378" max-vertical-offset="1148">
+          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Documents/Projects/Traveling-Salesman/TravelingSalesmanProblem/Member.py">
+    <entry file="file://$PROJECT_DIR$/Population.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5044092" vertical-offset="92" max-vertical-offset="672">
-          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.7548161" vertical-offset="395" max-vertical-offset="966">
+          <caret line="59" column="43" selection-start-line="59" selection-start-column="43" selection-end-line="59" selection-end-column="43" />
           <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Documents/Projects/Traveling-Salesman/TravelingSalesmanProblem/Population.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56551725" vertical-offset="176" max-vertical-offset="756">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>

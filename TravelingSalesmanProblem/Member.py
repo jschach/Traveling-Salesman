@@ -1,10 +1,11 @@
-import Cities.py
+import Cities
 import random
 
 __author__ = 'Jenna'
 
 class Member:
-    """ Uses and creates new member objects to be used
+    """
+    Uses and creates new member objects to be used
     in the genetic algorithm operation.
     """
 

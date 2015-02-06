@@ -4,7 +4,8 @@ from array import *
 __author__ = 'Jenna'
 
 class Cities:
-    """ Class initializes the city objects, used for the
+    """
+    Class initializes the city objects, used for the
     generations in the genetic algorithm. Each cities object contains
     a number of cities and the distance between each in the order
     of which they come in the array.
@@ -19,9 +20,10 @@ class Cities:
         self.create_distances()
 
 
+    # CREATE A COPY METHOD HERE DO NOT USE SECOND CONSTRUCTOR
     # constructor used for manipulation of Cities object
     # create new Cities object based on new set of cities
-    def __init__(self, list):
+    def __init__(self, list, items):
         self.city_list = list
         self.DISTANCE = 50
 
@@ -44,7 +46,7 @@ class Cities:
         return list
 
     # gets the distance from a specified city to another
-    def get__specified_distance(self, city1, city2):
+    def get_specified_distance(self, city1, city2):
         if city1 <= 0 or city1 > len(self.city_list):
             raise LookupError("city1 is out of range")
 
