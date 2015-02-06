@@ -12,32 +12,40 @@ class Member:
     # constructor to create member, taking a Cities object
     # initializes path field
     def __init__(self, num_cities):
-        self.cities = Cities(num_cities)
+        self.cities = Cities.Cities(num_cities)
         self.route = []
         self.visited = []
-        self.MAX_DISTANCE = Cities.DISTANCE * (num_cities - 1)
+        self.num_cities = num_cities
+        self.MAX_DISTANCE = Member.get_DISTANCE() * (num_cities - 1)
         # initialize route
         # route might be useless, decide what to do later
-        for x in range(0, len(self.cities)):
+        for x in range(0, num_cities):
             self.route.append(-1)
 
     # creates a random new permutation based on
     # the previous cities collected
     # returns the permutation created
-    def new_permutation(self):
+    def new_random_permutation(self):
         temp = []
         # reset boolean array
-        for x in range (0, len(self.cities)):
+        for x in range (0, self.num_cities):
             self.visited.append(False)
         # create new random permutation with no repetitions
-        for x in range(0, len(self.cities)):
-            z = random.randint(0, len(self.cities))
+        for x in range(0, self.num_cities):
+            z = random.randint(0, self.num_cities)
             while self.visited[z] == True:
-                z = random.randint(0, len(self.cities))
+                z = random.randint(0, self.num_cities)
             self.visited[z] = True
+
+    # creates a copy of a new member from
+    # an existing member
+    def new_member(self, Member):
+        cities = Member.copy_cities(self.num_cities)
+
 
     # scores the fitness of the member array
     # using the total distance between points
     def get_fitness(self, Member):
         score = Member.get_total_distance()
         return score
+

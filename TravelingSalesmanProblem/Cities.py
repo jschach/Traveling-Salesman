@@ -1,11 +1,11 @@
 import random
+import copy
 from array import *
 
 __author__ = 'Jenna'
 
 class Cities:
-    """
-    Class initializes the city objects, used for the
+    """ Class initializes the city objects, used for the
     generations in the genetic algorithm. Each cities object contains
     a number of cities and the distance between each in the order
     of which they come in the array.
@@ -14,18 +14,26 @@ class Cities:
     # constructor for Cities creates list of cities
     def __init__(self, items):
 
+        # field for max distance allowed between two cities
+        self.DISTANCE = 50
         self.city_list = array('i', [])
         for x in range(0, items):
             self.city_list.append(x)
         self.create_distances()
 
 
-    # CREATE A COPY METHOD HERE DO NOT USE SECOND CONSTRUCTOR
-    # constructor used for manipulation of Cities object
-    # create new Cities object based on new set of cities
-    def __init__(self, list, items):
-        self.city_list = list
-        self.DISTANCE = 50
+    # # CREATE A COPY METHOD HERE DO NOT USE SECOND CONSTRUCTOR
+    # # constructor used for manipulation of Cities object
+    # # create new Cities object based on new set of cities
+    # def __init__(self, list, items):
+    #     self.city_list = list
+    #     self.DISTANCE = 50
+
+
+    # copy method to create another cities object
+    # with the same attributes
+    def copy_cities(self, Cities):
+        return copy.copy(Cities)
 
     # generates the distances between each city
     def create_distances(self):
@@ -36,7 +44,7 @@ class Cities:
         for x in range(0, len(self.city_list)):
             for y in range (0, x):
 
-                self.distance_matrix[x][y] = random.randint(1, self.distance)
+                self.distance_matrix[x][y] = random.randint(1, self.DISTANCE)
                 if x == y:
                     self.distance_matrix[x][y] = 0
         print(self.distance_matrix)
@@ -44,6 +52,10 @@ class Cities:
     # gets matrix of distances
     def get_matrix(self, list):
         return list
+
+    # gets max distance between cities
+    def get_DISTANCE(self):
+        return self.DISTANCE
 
     # gets the distance from a specified city to another
     def get_specified_distance(self, city1, city2):
@@ -61,13 +73,11 @@ class Cities:
         distance = 0
         for x in range(0, len(self.city_list)):
             for y in range(0, x):
-                distance += self.citylist[x][y]
+                distance += self.city_list[x][y]
 
     # gets the number of cities in this particular object
     def get_number_cities(self):
         return len(self.city_list)
-
-
 
 
 def main():

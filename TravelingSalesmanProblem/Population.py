@@ -14,7 +14,7 @@ class Population:
     # just like my love life
     def __init__(self, num_cities):
         self.population = []
-        self.start_member = Member(15)
+        self.start_member = Member.Member(15)
         self.population.append(self.start_member)
         self.POPULATION_SIZE = 199
         self.population_ranking = []
@@ -39,10 +39,10 @@ class Population:
 
     # selects the parents from the select_parent method
     def get_parents(self):
-        mother_index = self.population.select_parent()
-        father_index = self.population.select_parent()
+        mother_index = self.select_parent()
+        father_index = self.select_parent()
         while mother_index <= father_index:
-            mother_index = self.population.select_parent()
+            mother_index = self.select_parent()
 
     # insertion sort to aid in the sorting of the ranking
     def insertion_sort(self, array):
@@ -61,3 +61,10 @@ class Population:
     def get_population_ranking(self):
         ranking = self.insertion_sort(self.population_ranking)
         return ranking
+
+    # create a child member
+    def create_child(self, parent1, parent2):
+        child = Member.Member(len(parent1))
+
+
+        return 0
