@@ -16,7 +16,7 @@ class Member:
         self.route = []
         self.visited = []
         self.num_cities = num_cities
-        self.MAX_DISTANCE = Member.get_DISTANCE() * (num_cities - 1)
+        self.MAX_DISTANCE = self.cities.get_DISTANCE() * (num_cities - 1)
         # initialize route
         # route might be useless, decide what to do later
         for x in range(0, num_cities):

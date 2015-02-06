@@ -23,7 +23,7 @@ class Population:
     # with many random members for starting population
     def start_population(self):
         for x in range(0, self.POPULATION_SIZE):
-            self.population.append(self.start_member.new_permutation())
+            self.population.append(self.start_member.new_random_permutation())
 
     # selects a random parent with the probability of choosing
     # a better parent over a worse parent (1*n/sum(POPULATION_SIZE)
