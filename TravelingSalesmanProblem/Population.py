@@ -14,16 +14,17 @@ class Population:
     # just like my love life
     def __init__(self, num_cities):
         self.population = []
-        self.start_member = Member.Member(num_cities)
-        self.population.append(self.start_member)
-        self.POPULATION_SIZE = 199
+        self.cities = Cities.Cities(num_cities)
+        self.POPULATION_SIZE = num_cities
         self.population_ranking = []
 
     # fills in the rest of the population array
     # with many random members for starting population
     def start_population(self):
         for x in range(0, self.POPULATION_SIZE):
-            self.population.append(self.start_member.new_random_permutation())
+            member = Member.Member(self.cities)
+            member.new_random_permutation()
+            self.population.append(member)
 
     # selects a random parent with the probability of choosing
     # a better parent over a worse parent (1*n/sum(POPULATION_SIZE)
@@ -45,15 +46,24 @@ class Population:
             mother_index = self.select_parent()
 
     # insertion sort to aid in the sorting of the ranking
+    # THERE NEEDS TO BE FITNESS COMPARISON, NOT MEMBER COMPARISON
     def insertion_sort(self, array):
-        for x in range(1, len(array)):
-            current = array[x]
-            pos = x
+        """
 
-            while pos > 0 and array[pos - 1] > current:
+        :param array:
+        :type array: list
+        :return:
+        """
+        for x in range(1, len(array)):
+            current = array[x].get_fitness(array[x])
+            current_member = array[x]
+            pos = x
+            next_fit = array[x].get_fitness(array[pos - 1])
+
+            while pos > 0 and next_fit > current:
                 array[pos] = array[pos - 1]
-                pos = pos - 1
-            array[pos] = current
+                pos -= 1
+            array[pos] = current_member
         return array
 
     # getter method for population ranking that
@@ -65,15 +75,15 @@ class Population:
     # create a child member
     def create_child(self, parent1, parent2):
         child = Member.Member(len(parent1))
-
-
-        return 0
+        return child
 
 def main():
-    p = Population(5)
+    p = Population(3)
     p.start_population()
+    p.population[0].new_random_permutation()
     p.insertion_sort(p.population)
-    print(p.population)
+    for x in range(0, len(p.population)):
+        print(p.population[x])
 
 if __name__ == '__main__':
     main()
