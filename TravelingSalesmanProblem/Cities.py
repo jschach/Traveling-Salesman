@@ -41,8 +41,8 @@ class Cities:
                     self.distance_matrix[x][y] = 0
 
     # gets matrix of distances
-    def get_matrix(self, list):
-        return list
+    def get_matrix(self):
+        return self.distance_matrix
 
     # gets max distance between cities
     def get_DISTANCE(self):

@@ -21,6 +21,12 @@ class Member:
         for x in range(0, self.cities.get_NUM_OF_CITIES()):
             self.route.append(x)
 
+    def set_route(self, route):
+        self.route = route
+
+    def get_route(self):
+        return self.route
+
     # creates a random new permutation based on
     # the previous cities collected
     # returns the permutation created
@@ -33,7 +39,7 @@ class Member:
         # create new random permutation with no repetitions
         for x in range(0, self.num_cities):
             z = random.randint(0, self.num_cities - 1)
-            while (visited[z] == True):
+            while visited[z] is True:
                    z = random.randint(0, self.num_cities - 1)
             self.route.append(z)
             visited[z] = True
@@ -50,11 +56,6 @@ class Member:
     # scores the fitness of the member array
     # using the total distance between points
     def get_fitness(self):
-        """
-        :param cities:
-        :return score:
-        :rtype: int
-        """
         score = 0
         y = 1
         for x in range(0, self.num_cities - 1):
