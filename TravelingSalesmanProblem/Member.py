@@ -41,22 +41,28 @@ class Member:
     # creates a copy of a new member from
     # an existing member
     def new_member(self, Member):
-        cities = Member.copy_cities(self.num_cities)
+        new_mem = Member(self.cities)
+        return new_mem
 
     def get_cities(self):
         return self.cities
 
     # scores the fitness of the member array
     # using the total distance between points
-    def get_fitness(self, cities):
+    def get_fitness(self):
         """
         :param cities:
         :return score:
         :rtype: int
         """
-        cities = Cities.copy_cities(self.cities)
-        score = cities.get_total_distance()
+        score = 0
+        y = 1
+        for x in range(0, self.num_cities - 1):
+            score += self.get_cities().get_specified_distance(self.route[x], self.route[y])
+            y += 1
         return score
+
+
 
     def __str__(self):
         return repr(self.route)

@@ -12,11 +12,10 @@ class Population:
 
     # creates a population of 1,
     # just like my love life
-    def __init__(self, num_cities):
+    def __init__(self, num_cities, population_size):
         self.population = []
         self.cities = Cities.Cities(num_cities)
-        self.POPULATION_SIZE = num_cities
-        self.population_ranking = []
+        self.POPULATION_SIZE = population_size
 
     # fills in the rest of the population array
     # with many random members for starting population
@@ -25,6 +24,7 @@ class Population:
             member = Member.Member(self.cities)
             member.new_random_permutation()
             self.population.append(member)
+            self.insert(x)
 
     # selects a random parent with the probability of choosing
     # a better parent over a worse parent (1*n/sum(POPULATION_SIZE)
@@ -46,44 +46,50 @@ class Population:
             mother_index = self.select_parent()
 
     # insertion sort to aid in the sorting of the ranking
-    # THERE NEEDS TO BE FITNESS COMPARISON, NOT MEMBER COMPARISON
-    def insertion_sort(self, array):
+    # returns where the value was placed in the population list
+    def insert(self, index):
         """
-
         :param array:
         :type array: list
         :return:
         """
-        for x in range(1, len(array)):
-            current = array[x].get_fitness(array[x])
-            current_member = array[x]
-            pos = x
-            next_fit = array[x].get_fitness(array[pos - 1])
+        previous = index - 1
+        current = self.population[index]
+        current_fitness = current.get_fitness()
 
-            while pos > 0 and next_fit > current:
-                array[pos] = array[pos - 1]
-                pos -= 1
-            array[pos] = current_member
-        return array
+        while previous > 0 and self.population[previous].get_fitness() > current_fitness:
+            self.population[previous + 1] = self.population[previous]
+            previous -= 1
 
-    # getter method for population ranking that
-    # sorts the ranking before returning it
-    def get_population_ranking(self):
-        ranking = self.insertion_sort(self.population_ranking)
-        return ranking
+        self.population[previous + 1] = current
+
+        return previous + 1
+
+    # getter method for population
+    def get_population(self):
+        return self.population
 
     # create a child member
     def create_child(self, parent1, parent2):
         child = Member.Member(len(parent1))
+        # THIS METHOD NEEDS EDITING
+        # YOU ARE NOT CREATING THE CHILD YOU WANT
+        # YOU FILTHY ANIMAL
         return child
 
 def main():
-    p = Population(3)
+    p = Population(5, 5)
     p.start_population()
     p.population[0].new_random_permutation()
-    p.insertion_sort(p.population)
     for x in range(0, len(p.population)):
         print(p.population[x])
+        print(p.population[x].get_fitness())
+    print("-------------------------------")
+    p.get_population()
+    for x in range(0, len(p.population)):
+        print(p.population[x])
+        print(p.population[x].get_fitness())
+
 
 if __name__ == '__main__':
     main()
