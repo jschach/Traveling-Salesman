@@ -58,9 +58,21 @@ class Population:
     def get_population(self):
         return self.population
 
-    # create a godlike child
-    def create_god(self):
-        return 0
+    # mutate the route by switching three random elements
+    def mutate(self, member):
+        route = member.get_route()
+        first = random.randint(0, len(route))
+        second = first
+        third = first
+        while first == second:
+            second = random.randint(0, len(route))
+        while third == first or third == second:
+            third = random.randint(0, len(route))
+        temp = route[first]
+        route[first] = route[second]
+        route[third] = route[second]
+        route[second] = temp
+        return route
 
     # create a child member
     def create_child(self):
@@ -116,6 +128,7 @@ def main():
         print(p.population[x])
     p.population[0].new_random_permutation()
     child = p.create_child()
+    p.mutate(child)
     p.population[p.POPULATION_SIZE - 1] = child
     for x in range(0, len(p.population)):
         print(p.population[x])
