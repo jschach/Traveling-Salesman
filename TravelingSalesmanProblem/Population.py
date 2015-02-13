@@ -12,11 +12,19 @@ class Population:
 
     # creates a population of 1,
     # just like my love life
-    def __init__(self, num_cities, population_size):
+    def __init__(self, num_cities, population_size, mutation_rate):
         self.population = []
         self.cities = Cities.Cities(num_cities)
         self.POPULATION_SIZE = population_size
         self.num_cities = num_cities
+        self.mutation_rate = mutation_rate
+        self.start_population()
+        self.population_children = []
+
+
+    # # gets mutation rate
+    # def get_mutation_rate(self):
+    #     return self.mutation_rate
 
     # fills in the rest of the population array
     # with many random members for starting population
@@ -31,8 +39,8 @@ class Population:
     # a better parent over a worse parent (1*n/sum(POPULATION_SIZE)
     # where n = POPULATION_SIZE-- starting from the best ranked parent
     def select_parent(self):
-        num1 = random.randint(0, self.POPULATION_SIZE - 1)
-        num2 = random.randint(0, self.POPULATION_SIZE)
+        num1 = random.randint(0, len(self.population) - 1)
+        num2 = random.randint(0, len(self.population))
         # selects the lower ranked parent
         if num1 <= num2:
             return num1
@@ -46,7 +54,8 @@ class Population:
         current = self.population[index]
         current_fitness = current.get_fitness()
 
-        while previous > 0 and self.population[previous].get_fitness() > current_fitness:
+        while previous >= 0 and self.population[previous].get_fitness() \
+                > current_fitness:
             self.population[previous + 1] = self.population[previous]
             previous -= 1
 
@@ -57,22 +66,6 @@ class Population:
     # getter method for population
     def get_population(self):
         return self.population
-
-    # mutate the route by switching three random elements
-    def mutate(self, member):
-        route = member.get_route()
-        first = random.randint(0, len(route))
-        second = first
-        third = first
-        while first == second:
-            second = random.randint(0, len(route))
-        while third == first or third == second:
-            third = random.randint(0, len(route))
-        temp = route[first]
-        route[first] = route[second]
-        route[third] = route[second]
-        route[second] = temp
-        return route
 
     # create a child member
     def create_child(self):
@@ -85,17 +78,22 @@ class Population:
 
         # select the parents
         parent1 = self.population[self.select_parent()]
-        parent2 = self.population[self.select_parent()]
+        parent2 = parent1
+        while parent1 == parent2:
+            parent2 = self.population[self.select_parent()]
+
 
         # check for best distance between cities of each parents
         # and keep those two cities in the child
         for x in range(0, self.num_cities - 1):
-            temp1 = self.cities.get_specified_distance(parent1.get_route()[x], parent1.get_route()[x + 1])
+            temp1 = self.cities.get_specified_distance(parent1.get_route()[x],
+                                                       parent1.get_route()[x + 1])
             if temp1 < best_distance:
                 best_distance = temp1
                 best_two_cities[0] = x
                 best_two_cities[1] = x + 1
-            temp2 = self.cities.get_specified_distance(parent2.get_route()[x], parent2.get_route()[x + 1])
+            temp2 = self.cities.get_specified_distance(parent2.get_route()[x],
+                                                       parent2.get_route()[x + 1])
             if temp2 < best_distance:
                 best_distance = temp2
                 best_two_cities[0] = x
@@ -108,30 +106,45 @@ class Population:
         # into the array
         if parent2.get_fitness() > parent1.get_fitness():
             for x in range(0, len(parent1.get_route())):
-                if parent1.get_route()[x] != best_two_cities[0] and parent1.get_route()[x] != best_two_cities[1]:
+                if parent1.get_route()[x] != best_two_cities[0] \
+                        and parent1.get_route()[x] != best_two_cities[1] \
+                        and len(new_route) < self.num_cities:
                     new_route.append(parent1.get_route()[x])
+
         elif parent2.get_fitness() <= parent1.get_fitness():
             for x in range(0, len(parent2.get_route())):
-                if parent2.get_route()[x] != best_two_cities[0] and parent2.get_route()[x] != best_two_cities[1]:
+                if parent2.get_route()[x] != best_two_cities[0] \
+                        and parent2.get_route()[x] != best_two_cities[1]\
+                        and len(new_route) < self.num_cities:
                     new_route.append(parent2.get_route()[x])
 
         child.set_route(new_route)
-        # THIS METHOD NEEDS EDITING
-        # YOU ARE CREATING A MONSTER
-        # YOU FILTHY ANIMAL
         return child
 
+    # runs the genetic algorithm once
+    def run_algorithm(self):
+        num_new_child = int(self.POPULATION_SIZE * .7)
+        self.population = self.population[:-num_new_child]
+        for x in range(0, num_new_child):
+            child = self.create_child()
+            rand = random.randint(1, 100)
+            if rand <= (self.mutation_rate * 100):
+                child.mutate()
+            self.population.append(child)
+            self.insert(len(self.population) - 1)
+
+
+
+
 def main():
-    p = Population(20, 200)
-    p.start_population()
+    p = Population(20, 5, 0.5)
+    p.run_algorithm()
     for x in range(0, len(p.population)):
         print(p.population[x])
-    p.population[0].new_random_permutation()
-    child = p.create_child()
-    p.mutate(child)
-    p.population[p.POPULATION_SIZE - 1] = child
-    for x in range(0, len(p.population)):
-        print(p.population[x])
+        print(p.population[x].get_fitness())
+
+
+
 
 
 if __name__ == '__main__':

@@ -1,5 +1,7 @@
 import random
 import copy
+import array
+import binascii
 from array import *
 
 __author__ = 'Jenna'
@@ -29,7 +31,8 @@ class Cities:
     # generates the distances between each city
     def create_distances(self):
         # initialize matrix before filling it with values
-        self.distance_matrix = [[0 for x in range(self.NUM_OF_CITIES)] for x in range(self.NUM_OF_CITIES)]
+        self.distance_matrix = [[0 for x in range(self.NUM_OF_CITIES)]
+                                for x in range(self.NUM_OF_CITIES)]
         # put random distances into HALF of the matrix for cities
         # to generate no differing distances between any two cities
         for x in range(0, self.NUM_OF_CITIES):

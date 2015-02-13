@@ -15,7 +15,8 @@ class Member:
         self.cities = cities
         self.route = []
         self.num_cities = cities.get_NUM_OF_CITIES()
-        self.MAX_DISTANCE = self.cities.get_DISTANCE() * (self.cities.get_DISTANCE() - 1)
+        self.MAX_DISTANCE = self.cities.get_DISTANCE()\
+                            * (self.cities.get_DISTANCE() - 1)
         # initialize route
         # route might be useless, decide what to do later
         for x in range(0, self.cities.get_NUM_OF_CITIES()):
@@ -43,6 +44,23 @@ class Member:
                    z = random.randint(0, self.num_cities - 1)
             self.route.append(z)
             visited[z] = True
+
+        # mutate the route by switching three random elements
+    def mutate(self):
+        route = self.get_route()
+        first = random.randint(0, len(route) - 1)
+        second = first
+        third = first
+        while first == second:
+            second = random.randint(0, len(route) - 1)
+        while third == first or third == second:
+            third = random.randint(0, len(route) - 1)
+        temp = route[first]
+        temp2 = route[second]
+        route[first] = route[third]
+        route[second] = temp
+        route[third] = temp2
+        self.set_route(route)
 
     # creates a copy of a new member from
     # an existing member
