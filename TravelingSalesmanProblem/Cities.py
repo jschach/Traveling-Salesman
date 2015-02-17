@@ -21,7 +21,6 @@ class Cities:
     # constructor for Cities creates list of cities
     def __init__(self, items):
         # field for max distance allowed between two cities
-        self.DISTANCE = 50
         self.NUM_OF_CITIES = items
         self.distance_matrix = {}
         self.create_distances()
@@ -30,26 +29,44 @@ class Cities:
     def get_NUM_OF_CITIES(self):
         return self.NUM_OF_CITIES
 
-    # generates the distances between each city
-    def create_distances(self):
+    def generate_distances(self):
+        # opens the file to write to it
+        f = open('cities.txt', 'w')
         # put random distances into HALF of the matrix for cities
         # to generate no differing distances between any two cities
         for x in range(0, self.NUM_OF_CITIES):
             for y in range(0, self.NUM_OF_CITIES):
-                temp = random.randint(1, self.DISTANCE)
-                self.distance_matrix[(x, y)] = temp
+                temp = random.randint(1, 50)
+                input = str(temp) + " "
                 if x == y:
-                    self.distance_matrix[(x, y)] = 0
-                print(self.distance_matrix[(x, y)])
-        print(self.distance_matrix)
+                    f.write('0 ')
+                else:
+                    f.write(input)
+            f.write('\n')
+        f.close()
+        self.create_distances()
+
+    # generates the distances between each city
+    def create_distances(self):
+        with open('cities.txt') as f:
+            array = []
+            for line in f:
+                array.append([int(x) for x in line.split()])
+        if len(array) < self.NUM_OF_CITIES:
+            self.generate_distances()
+        # put random distances into HALF of the matrix for cities
+        # to generate no differing distances between any two cities
+        for x in range(0, len(array[0])):
+            for y in range(0, len(array[0])):
+                self.distance_matrix[(x, y)] = array[x][y]
+
+        for x in range(0, len(array[0])):
+            for y in range(0, len(array[0])):
+                print(" ", self.distance_matrix[(x, y)])
 
     # gets matrix of distances
     def get_matrix(self):
         return self.distance_matrix
-
-    # gets max distance between cities
-    def get_DISTANCE(self):
-        return self.DISTANCE
 
     # gets the distance from a specified city to another
     def get_specified_distance(self, city1, city2):
@@ -68,10 +85,3 @@ class Cities:
             for y in range(0, self.NUM_OF_CITIES):
                 distance += self.distance_matrix[(x, y)]
         return distance
-
-
-def main():
-    c = Cities(5)
-
-if __name__ == '__main__':
-    main()

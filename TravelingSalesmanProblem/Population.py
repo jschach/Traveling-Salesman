@@ -12,9 +12,9 @@ class Population:
 
     # creates a population of 1,
     # just like my love life
-    def __init__(self, num_cities, population_size, mutation_rate):
+    def __init__(self, num_cities, population_size, mutation_rate, cities):
         self.population = []
-        self.cities = Cities.Cities(num_cities)
+        self.cities = cities
         self.POPULATION_SIZE = population_size
         self.num_cities = num_cities
         self.mutation_rate = mutation_rate
@@ -133,7 +133,9 @@ class Population:
             self.population.append(child)
             self.insert(len(self.population) - 1)
 
-
+    # getter for cities
+    def get_cities(self):
+        return self.cities
 
 
 def main():

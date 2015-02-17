@@ -15,8 +15,8 @@ class Member:
         self.cities = cities
         self.route = []
         self.num_cities = cities.get_NUM_OF_CITIES()
-        self.MAX_DISTANCE = self.cities.get_DISTANCE()\
-                            * (self.cities.get_DISTANCE() - 1)
+        self.MAX_DISTANCE = 50\
+                            * (50 - 1)
         # initialize route
         # route might be useless, decide what to do later
         for x in range(0, self.cities.get_NUM_OF_CITIES()):
@@ -79,7 +79,9 @@ class Member:
         for x in range(0, self.num_cities - 1):
             score += self.get_cities().get_specified_distance(self.route[x], self.route[y])
             y += 1
+        score += self.get_cities().get_specified_distance(self.route[self.num_cities - 1], self.route[0])
         return score
+
 
 
 
