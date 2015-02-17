@@ -38,9 +38,10 @@ class Menu:
         # and use them in the algorithm
         p = Population.Population(self.num_cities, self.pop_size,
                                   self.mutation_rate)
-        for x in range(0, 10000000):
+        for x in range(0, 1000):
             p.run_algorithm()
             top = p.get_population()[0]
+            ten = p.get_population()
             print("First place is: ", top, " with ", top.get_fitness())
 
 

@@ -23,25 +23,25 @@ class Cities:
         # field for max distance allowed between two cities
         self.DISTANCE = 50
         self.NUM_OF_CITIES = items
+        self.distance_matrix = {}
         self.create_distances()
+
 
     def get_NUM_OF_CITIES(self):
         return self.NUM_OF_CITIES
 
     # generates the distances between each city
     def create_distances(self):
-        # initialize matrix before filling it with values
-        self.distance_matrix = [[0 for x in range(self.NUM_OF_CITIES)]
-                                for x in range(self.NUM_OF_CITIES)]
         # put random distances into HALF of the matrix for cities
         # to generate no differing distances between any two cities
         for x in range(0, self.NUM_OF_CITIES):
-            for y in range(0, x):
+            for y in range(0, self.NUM_OF_CITIES):
                 temp = random.randint(1, self.DISTANCE)
-                self.distance_matrix[x][y] = temp
-                self.distance_matrix[y][x] = temp
+                self.distance_matrix[(x, y)] = temp
                 if x == y:
-                    self.distance_matrix[x][y] = 0
+                    self.distance_matrix[(x, y)] = 0
+                print(self.distance_matrix[(x, y)])
+        print(self.distance_matrix)
 
     # gets matrix of distances
     def get_matrix(self):
@@ -58,20 +58,20 @@ class Cities:
 
         if city2 > self.NUM_OF_CITIES:
             raise LookupError("city2 is out of range")
-        return self.distance_matrix[city1][city2]
+        return self.distance_matrix[(city1, city2)]
 
     # gets the distance between all points of the
     # Cities object
     def get_total_distance(self):
         distance = 0
-        for x in range(0, len(self.distance_matrix)):
-            for y in range(0, x):
-                distance += self.distance_matrix[x][y]
+        for x in range(0, self.NUM_OF_CITIES):
+            for y in range(0, self.NUM_OF_CITIES):
+                distance += self.distance_matrix[(x, y)]
         return distance
 
 
-# def main():
-#     c = Cities(5)
-#
-# if __name__ == '__main__':
-#     main()
+def main():
+    c = Cities(5)
+
+if __name__ == '__main__':
+    main()
